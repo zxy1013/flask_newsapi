@@ -2,7 +2,7 @@
 也就是说JavaScript只能访问和操作自己域下的资源，不能访问和操作其他域下的资源。
 跨域问题是针对JS和ajax的，html本身没有跨域问题。
 
-后端解决跨域问题1
+后端解决跨域问题
 pip install flask-cors
 使用第三方扩展 exts中创建
 from flask_cors import CORS
@@ -10,13 +10,6 @@ cors= CORS()
 与app进行绑定即可
 cors.init_app(app=app,supports_credentials=True)
 
-后端解决跨域问题2
-response = make_response()
-# 设置头部 同源策略
-response.headers['Access-Control-Allow-Origin']='*' # 任何源均可访问
-response.headers['Access-Control-Allow-Methods']='GET,POST' # 允许的请求方法
-response.headers['Access-Control-Allow-Headers']='x-request-with,Content-type'
-return response
 
 蓝图与api配合使用
 user_bp = Blueprint('user', __name__)
